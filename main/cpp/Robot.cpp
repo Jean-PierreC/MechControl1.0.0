@@ -13,6 +13,10 @@
 ExampleSubsystem* Robot::m_subsystem;
 OI* Robot::m_oi;
 DriveTrain* Robot::Drive;
+Arm* Robot::m_Arm;
+HatchServo* Robot::m_HatchServo;
+Piston* Robot::m_Piston;
+PressureControl* Robot::m_compressor;
 
 void Robot::RobotInit() {
  // m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
@@ -20,6 +24,10 @@ void Robot::RobotInit() {
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
   Robot::Drive = new DriveTrain();
   Robot::m_oi = new OI();
+  Robot::m_Arm = new Arm();
+  Robot::m_HatchServo = new HatchServo();
+  Robot::m_Piston = new Piston();
+  Robot::m_compressor = new PressureControl();
 }
 
 /**

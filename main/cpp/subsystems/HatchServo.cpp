@@ -5,23 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
-#include "frc/WPILib.h"
-#include "frc/Joystick.h"
+#include "subsystems/HatchServo.h"
+#include "RobotMap.h"
+#include <iostream>
+HatchServo::HatchServo() : Subsystem("ExampleSubsystem"),servo(new Servo(SERVO_PORT)) {}
 
-#include "ctre/Phoenix.h"
-
-
-class OI {
-
-private:
-  frc::Joystick* leftJoy;
-  frc::Joystick* rightJoy;
-  frc::Joystick* armJoy;
+void HatchServo::InitDefaultCommand() {
+  // Set the default command for a subsystem here.
+  // SetDefaultCommand(new MySpecialCommand());
   
- public:
-  frc::Joystick* getLeft();
-  frc::Joystick* getRight();
-  frc::Joystick* getArm();
-  OI();
-};
+}
+void HatchServo::extend(){
+  servo->Set(0);
+}
+
+void HatchServo::retract(){
+  servo->Set(3);
+}
+
+// Put methods for controlling this subsystem
+// here. Call these from Commands.

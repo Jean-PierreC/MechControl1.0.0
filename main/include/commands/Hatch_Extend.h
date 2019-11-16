@@ -6,22 +6,10 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include "frc/WPILib.h"
-#include "frc/Joystick.h"
 
-#include "ctre/Phoenix.h"
+#include <frc/commands/CommandGroup.h>
 
-
-class OI {
-
-private:
-  frc::Joystick* leftJoy;
-  frc::Joystick* rightJoy;
-  frc::Joystick* armJoy;
-  
+class Hatch_Extend : public frc::CommandGroup {
  public:
-  frc::Joystick* getLeft();
-  frc::Joystick* getRight();
-  frc::Joystick* getArm();
-  OI();
+  Hatch_Extend();
 };

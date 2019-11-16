@@ -5,33 +5,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/TankDrive.h"
+#include "commands/Compressor_Off.h"
 #include "Robot.h"
-#include "OI.h"
-#include "subsystems/DriveTrain.h"
-
-
-
-TankDrive::TankDrive() {
-  
+Compressor_Off::Compressor_Off() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::Drive);
+  // eg. Requires(Robot::chassis.get());
+    Requires(Robot::m_compressor);
+
 }
 
 // Called just before this Command runs the first time
-void TankDrive::Initialize() {}
-
-// Called repeatedly when this Command is scheduled to run
-void TankDrive::Execute() {
-  Robot::Drive->Drive(Robot::m_oi->getLeft()->GetY(),Robot::m_oi->getRight()->GetY());
+void Compressor_Off::Initialize() {
+  Robot::m_compressor->compressorOff();
 }
 
+// Called repeatedly when this Command is scheduled to run
+void Compressor_Off::Execute() {}
+
 // Make this return true when this Command no longer needs to run execute()
-bool TankDrive::IsFinished() { return false; }
+bool Compressor_Off::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void TankDrive::End() {}
+void Compressor_Off::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TankDrive::Interrupted() {}
+void Compressor_Off::Interrupted() {}

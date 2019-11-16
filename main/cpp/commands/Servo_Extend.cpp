@@ -5,33 +5,31 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/TankDrive.h"
+#include "commands/Servo_Extend.h"
 #include "Robot.h"
-#include "OI.h"
-#include "subsystems/DriveTrain.h"
-
-
-
-TankDrive::TankDrive() {
-  
+#include <iostream>
+Servo_Extend::Servo_Extend() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::Drive);
+  // eg. Requires(Robot::chassis.get());
+  Requires(Robot::m_HatchServo);
 }
 
 // Called just before this Command runs the first time
-void TankDrive::Initialize() {}
+void Servo_Extend::Initialize() {
+  Robot::m_HatchServo->extend();
+}
 
 // Called repeatedly when this Command is scheduled to run
-void TankDrive::Execute() {
-  Robot::Drive->Drive(Robot::m_oi->getLeft()->GetY(),Robot::m_oi->getRight()->GetY());
+void Servo_Extend::Execute() {
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TankDrive::IsFinished() { return false; }
+bool Servo_Extend::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void TankDrive::End() {}
+void Servo_Extend::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TankDrive::Interrupted() {}
+void Servo_Extend::Interrupted() {}

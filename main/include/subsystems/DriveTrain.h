@@ -17,9 +17,11 @@ class DriveTrain : public frc::Subsystem {
   // for methods that implement subsystem capabilities
   TalonSRX* left;
   TalonSRX* right;
+  
   double leftPower;
   double rightPower;
- public:
+
+ public: 
   DriveTrain();
   void Drive(double leftInput, double rightInput);
   void InitDefaultCommand() override;

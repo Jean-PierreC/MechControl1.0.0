@@ -6,22 +6,19 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+
+#include <frc/commands/Subsystem.h>
 #include "frc/WPILib.h"
-#include "frc/Joystick.h"
+using namespace frc;
 
-#include "ctre/Phoenix.h"
-
-
-class OI {
-
-private:
-  frc::Joystick* leftJoy;
-  frc::Joystick* rightJoy;
-  frc::Joystick* armJoy;
-  
+class HatchServo : public frc::Subsystem {
+ private:
+  // It's desirable that everything possible under private except
+  // for methods that implement subsystem capabilities
+  Servo* servo;
  public:
-  frc::Joystick* getLeft();
-  frc::Joystick* getRight();
-  frc::Joystick* getArm();
-  OI();
+  HatchServo();
+  void extend();
+  void retract();
+  void InitDefaultCommand() override;
 };

@@ -8,13 +8,19 @@
 #include "OI.h"
 #include "WPILib.h"
 
-
-OI::OI() : leftJoy(new frc::Joystick(0)), rightJoy(new frc::Joystick(1)) {
+OI::OI() : leftJoy(new frc::Joystick(0)), 
+rightJoy(new frc::Joystick(1)),
+armJoy(new frc::Joystick(2)) {
   // Process operator interface input here.
+  
 }
 frc::Joystick* OI::getLeft(){
   return leftJoy;
 }
 frc::Joystick* OI::getRight(){
   return rightJoy;
+}
+
+frc::Joystick* OI::getArm(){
+  return armJoy;
 }

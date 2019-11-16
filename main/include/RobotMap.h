@@ -22,4 +22,12 @@
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;
-// constexpr int kRangeFinderModule = 1;
+constexpr int SERVO_PORT = 8;
+//PCM_TALON_ID, PISTON_FORWARD_CHANNEL, PISTON_REVERSE_CHANNEL
+constexpr int PCM_TALON_ID = 0;
+constexpr int PISTON_FORWARD_CHANNEL = 0;
+constexpr int PISTON_REVERSE_CHANNEL = 1;
+constexpr int SuperPortRightTalon= 2;
+constexpr int SuperPortLeftTalon= 3;
+constexpr int COMPRESSOR_PORT = 5;
+

@@ -5,33 +5,31 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/TankDrive.h"
+#include "commands/moveArm.h"
 #include "Robot.h"
 #include "OI.h"
-#include "subsystems/DriveTrain.h"
+#include "subsystems/Arm.h"
 
 
-
-TankDrive::TankDrive() {
-  
+moveArm::moveArm() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(Robot::Drive);
+  // eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void TankDrive::Initialize() {}
+void moveArm::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void TankDrive::Execute() {
-  Robot::Drive->Drive(Robot::m_oi->getLeft()->GetY(),Robot::m_oi->getRight()->GetY());
+void moveArm::Execute() {
+  Robot::m_Arm->moveArm(Robot::m_oi->getArm()->GetY());
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TankDrive::IsFinished() { return false; }
+bool moveArm::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void TankDrive::End() {}
+void moveArm::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void TankDrive::Interrupted() {}
+void moveArm::Interrupted() {}

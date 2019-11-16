@@ -5,23 +5,19 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
-#include "frc/WPILib.h"
-#include "frc/Joystick.h"
+#include "subsystems/Arm.h"
 
-#include "ctre/Phoenix.h"
+Arm::Arm() : Subsystem("ExampleSubsystem"),
+ arm(new TalonSRX(4)) {}
 
+void Arm::InitDefaultCommand() {
+  // Set the default command for a subsystem here.
+  // SetDefaultCommand(new MySpecialCommand());
+}
 
-class OI {
+// Put methods for controlling this subsystem
+// here. Call these from Commands.
 
-private:
-  frc::Joystick* leftJoy;
-  frc::Joystick* rightJoy;
-  frc::Joystick* armJoy;
-  
- public:
-  frc::Joystick* getLeft();
-  frc::Joystick* getRight();
-  frc::Joystick* getArm();
-  OI();
-};
+void Arm::moveArm(double pwr){
+  arm->Set(ControlMode::PercentOutput, pwr);
+}

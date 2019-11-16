@@ -14,11 +14,21 @@
 #include "OI.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/DriveTrain.h"
+#include "subsystems/Arm.h"
+#include "subsystems/HatchServo.h"
+#include "subsystems/Piston.h"
+#include "subsystems/PressureControl.h"
+
 class Robot : public frc::TimedRobot {
  public:
   static ExampleSubsystem* m_subsystem;
   static OI* m_oi;
   static DriveTrain* Drive;
+  static Arm* m_Arm;
+  static HatchServo*m_HatchServo;
+  static Piston* m_Piston;
+  static PressureControl* m_compressor;
+  
   void RobotInit() override;
   void RobotPeriodic() override;
   void DisabledInit() override;
